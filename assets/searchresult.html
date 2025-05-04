@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Sharing App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            width: 200px;
+            height: 300px;
+            padding: 10px;
+            border-radius: 10%;
+            background: linear-gradient(to right, #bda05b, #e3c17d, #bda05b);
+        }
+    </style>
+        
+</head>
+<body>
+    <br/>
+    <br/>
+    <br/>
+{% for item in data %}
+    <div class="cart-items">
+        <img src="{{ item.recipe_images.url }}" alt="Recipe Image" class="band-image">
+        <h2>{{ item.title }}</h2>
+        <h2>{{ item.description }}</h2>
+        <p>{{ item.incredients }}</p>
+        <p>{{ item.instructions }}</p>
+        <br/><br/>
+    </div>
+  {% endfor %}
+</body>
+</html>

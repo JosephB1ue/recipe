@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            width: 700px;
+            height: 500px;
+            padding: 20px;
+            border-radius: 10%;
+            background: linear-gradient(to right, #bda05b, #e3c17d, #bda05b);
+        }
+        input {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            border-radius: 20px;
+            padding: 3px;
+            font-size: 1.1rem;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+            border-radius: 20px;
+            outline: none;
+            padding: 3px;
+            font-size: 1.1rem;
+        }
+        button {
+            width: 30%;
+            height: 35px;
+            border-radius: 20px;
+            background-color: #f0c14b;
+            color: #111;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 1px solid #a88734;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            width: 12%;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            text-align: center;
+        }
+        a:hover {
+            background-color: #f7d592;
+        }
+    </style>
+</head>
+<body>
+    <br/>
+    <br/>
+    <a href="/">See All Recipes</a>
+    {{message}}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" id="image" name="image" placeholder="Img"/>
+        <br/>
+        <input type="text" id="title" name="title" placeholder="Title"/>
+        <br/>
+        <input type="text" id="description" name="description" placeholder="Description"/>
+        <br/>
+        <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients"/>
+        <br/>
+        <textarea  type="text" id="instructions" name="instructions"> </textarea>
+        <button>Submit</button>
+    </form> 
+</body>
+</html>

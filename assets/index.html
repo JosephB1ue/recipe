@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Sharing App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+      footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Sharing App</h1>
+    </header>
+
+    <div class="d">
+      <h1>Welcome to our Recipe App</h1>
+      <form method="post">
+        {% csrf_token %}
+        <input type="search" placeholder="search a recipee" name="search"/>
+        <button>Submit</button>
+    </form>
+    <a class="addrecipe" href="/addrecipe">add a recipee</a>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
+    <main id="recipe-container">
+<div class="container">
+  <section>
+    <div class="items-inner">
+      {% for value in data %}
+      <div class="items">
+        <div class="item">
+          <div class="photo">
+              <img src="{{value.recipe_images.url}}" />
+            </a>
+            <!-- <div class="number">1</div> -->
+            <div class="wish" div></div>
+          </div>
+          <div class="desc">
+            <!-- <small>INFO</small> -->
+            <span>{{value.title}}</span>
+            <em>{{value.incredients}}</em>
+            <em>{{value.description}}</em>
+            <small>{{value.instructions}}</small>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+    </main>
+    <br/>
+    <br/>
+    <br/>
+    <footer>
+        <p>&copy; 2023 Recipe Sharing App</p>
+    </footer>
+</body>
+</html>
